@@ -1,6 +1,8 @@
 Material Design Library
 ====================
 
+### Master分支没有做任何修改，请切换develop分支！
+
 
 ### Description
 This library helps developers creating their Android Application with Material Design.  
