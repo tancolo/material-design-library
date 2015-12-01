@@ -99,6 +99,12 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
         return new ActionBarDefaultHandler(this);
     }
 
+    //Fixed the compiling errors
+    @Override
+    protected boolean enableActionBarShadow() {
+        return false;
+    }//end Fixed
+
     private List<MainActivityFeature> getFeatures() {
         MainActivityFeature navigationDrawerHeader = new MainActivityFeature();
         navigationDrawerHeader.setHeader(true);

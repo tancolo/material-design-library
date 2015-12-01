@@ -8,6 +8,7 @@ import com.blunderer.materialdesignlibrary.handlers.ActionBarHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerAccountsHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerAccountsMenuHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerBottomHandler;
+import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerStyleHandler;
 import com.blunderer.materialdesignlibrary.handlers.NavigationDrawerTopHandler;
 import com.blunderer.materialdesignlibrary.models.Account;
 import com.blunderer.materialdesignlibrary.sample.R;
@@ -97,4 +98,15 @@ public class NavigationDrawerWithAccountsActivity
         return new ActionBarDefaultHandler(this);
     }
 
+    //Fixed the compiling errors
+    @Override
+    protected boolean enableActionBarShadow() {
+        return false;
+    }
+
+    @Override
+    public NavigationDrawerStyleHandler getNavigationDrawerStyleHandler() {
+        return  null;
+    }
+    //end Fixed
 }

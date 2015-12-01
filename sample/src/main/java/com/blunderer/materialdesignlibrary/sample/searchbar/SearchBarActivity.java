@@ -28,4 +28,11 @@ public class SearchBarActivity extends Activity {
         });
     }
 
+    //Fixed the compiling errors
+    @Override
+    protected boolean enableActionBarShadow() {
+        return false;
+    }
+    //end Fixed
+
 }

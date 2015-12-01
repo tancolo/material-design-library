@@ -66,4 +66,9 @@ public class ListViewActivity
         return new ActionBarDefaultHandler(this);
     }
 
+    //Fixed the compiling errors
+    @Override
+    protected boolean enableActionBarShadow() {
+        return false;
+    }//end Fixed
 }

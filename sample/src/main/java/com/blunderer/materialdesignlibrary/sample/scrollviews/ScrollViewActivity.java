@@ -31,4 +31,9 @@ public class ScrollViewActivity
         return new ActionBarDefaultHandler(this);
     }
 
+    //Fixed the compiling errors
+    @Override
+    protected boolean enableActionBarShadow() {
+        return false;
+    }//end Fixed
 }
