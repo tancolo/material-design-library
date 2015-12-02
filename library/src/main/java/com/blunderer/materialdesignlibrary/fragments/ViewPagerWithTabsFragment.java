@@ -8,11 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.astuetz.PagerSlidingTabStrip;
+//import com.astuetz.PagerSlidingTabStrip;
 import com.blunderer.materialdesignlibrary.R;
 import com.blunderer.materialdesignlibrary.adapters.ViewPagerAdapter;
 import com.blunderer.materialdesignlibrary.handlers.ViewPagerHandler;
 import com.blunderer.materialdesignlibrary.models.ViewPagerItem;
+import com.blunderer.materialdesignlibrary.views.PagerSlidingTabStrip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,15 +95,17 @@ public abstract class ViewPagerWithTabsFragment extends AFragment
     }
 
     private void showTabs(ViewPager pager) {
-        mViewPagerTabs.setTextColor(getResources().getColor(android.R.color.white));
+        mViewPagerTabs.setTextColor(getResources().getColor(android.R.color.black));
+        //setCustomTabsStyle(mViewPagerTabs);
+
         mViewPagerTabs.setShouldExpand(expandTabs());
         mViewPagerTabs.setOnPageChangeListener(mUserOnPageChangeListener);
         mViewPagerTabs.setViewPager(pager);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            mViewPagerTabs.setTabBackground(android.R.attr.selectableItemBackground);
+            mViewPagerTabs.setTabBackground(android.R.attr.selectableItemBackgroundBorderless);
         }
     }
 
     protected abstract boolean expandTabs();
-
+    //protected abstract void setCustomTabsStyle(PagerSlidingTabStrip tabs);
 }

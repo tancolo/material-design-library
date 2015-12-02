@@ -31,20 +31,41 @@
             android:scaleType="centerInside"
             android:visibility="gone"/>
 
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/navigation_drawer_row_text_icon"
+            style="@style/MaterialDesignLibraryTheme.NavigationDrawer.ItemsTextIconStyle"
+            android:layout_width="@dimen/mdl_navigation_drawer_row_icon_size"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center"
+            android:visibility="gone"/>
+
         <TextView
             android:id="@+id/navigation_drawer_row_title"
             style="@style/MaterialDesignLibraryTheme.NavigationDrawer.ItemsTextStyle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:visibility="gone"/>
 
         <TextView
             android:id="@+id/navigation_drawer_row_header"
             style="@style/MaterialDesignLibraryTheme.NavigationDrawer.SectionsTextStyle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:visibility="gone"/>
 
+        <ImageView
+            android:id="@+id/navigation_drawer_row_alert_icon"
+            android:layout_width="@dimen/mdl_navigation_drawer_row_text_icon_size"
+            android:layout_height="@dimen/mdl_navigation_drawer_row_text_icon_size"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:contentDescription="@string/mdl_unread_count"
+            android:scaleType="centerInside"
+            android:visibility="gone"/>
     </LinearLayout>
 
 </LinearLayout>

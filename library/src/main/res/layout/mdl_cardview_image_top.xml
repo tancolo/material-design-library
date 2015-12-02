@@ -10,7 +10,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="170dp">
+            android:layout_height="@dimen/mdl_cardview_image_height">
 
             <com.joooonho.SelectableRoundedImageView
                 android:layout_width="match_parent"
@@ -49,13 +49,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="@dimen/mdl_cardview_description_margin"
+                android:layout_marginLeft="@dimen/mdl_cardview_description_margin"
+                android:layout_marginStart="@dimen/mdl_cardview_description_margin"
+                android:layout_marginRight="@dimen/mdl_cardview_description_margin"
+                android:layout_marginEnd="@dimen/mdl_cardview_description_margin"
+                android:layout_marginBottom="@dimen/mdl_cardview_description_margin"
                 android:textColor="@color/mdl_cardview_image_top_description_color"
+                android:gravity="center"
                 android:textSize="@dimen/mdl_cardview_description_size"
                 android:visibility="gone"/>
 

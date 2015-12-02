@@ -100,6 +100,19 @@ public class NavigationDrawerAccountsHandler {
 
     public NavigationDrawerAccountsHandler addAccount(String title,
                                                       String description,
+                                                      int pictureResource,
+                                                      Drawable background) {
+        Account item = new Account();
+        item.setTitle(title);
+        item.setDescription(description);
+        item.setPicture(mContext, pictureResource);
+        item.setBackground(background);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerAccountsHandler addAccount(String title,
+                                                      String description,
                                                       Drawable picture,
                                                       String backgroundUrl) {
         Account item = new Account();

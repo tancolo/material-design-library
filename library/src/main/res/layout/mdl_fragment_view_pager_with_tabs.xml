@@ -6,16 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.astuetz.PagerSlidingTabStrip
+    <com.blunderer.materialdesignlibrary.views.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="@dimen/mdl_viewpager_with_tabs_height"
-        android:background="?attr/colorPrimary"
+        android:background="@android:color/white"
         app:pstsUnderlineHeight="0dp"
         app:pstsUnderlineColor="@android:color/transparent"
-        app:pstsIndicatorColor="@android:color/white"
+        app:pstsIndicatorColor="?attr/colorPrimary"
         app:pstsIndicatorHeight="5dp"
-        app:pstsDividerColor="?attr/colorPrimaryDark"/>
+        app:pstsDividerColor="@android:color/white"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

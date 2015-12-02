@@ -2,6 +2,7 @@ package com.blunderer.materialdesignlibrary.sample;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -67,6 +68,7 @@ public class MainActivity extends com.blunderer.materialdesignlibrary.activities
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         Intent intent = new Intent(this,
                 ((MainActivityFeature) adapterView.getAdapter().getItem(position)).getActivity());
+        Log.e("TANHQ", "onItemClick(): position = " + position + ", intent = " + intent);
         startActivity(intent);
     }
 

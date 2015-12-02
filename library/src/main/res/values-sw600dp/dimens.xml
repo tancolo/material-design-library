@@ -6,6 +6,7 @@
     <dimen name="mdl_navigation_drawer_row_height">52dp</dimen>
     <dimen name="mdl_navigation_drawer_row_padding">20dp</dimen>
     <dimen name="mdl_navigation_drawer_row_icon_size">30dp</dimen>
+    <dimen name="mdl_navigation_drawer_row_text_icon_size">23sp</dimen>
     <dimen name="mdl_navigation_drawer_row_title_size">15sp</dimen>
     <dimen name="mdl_navigation_drawer_row_header_size">15sp</dimen>
     <dimen name="mdl_navigationdrawer_accounts_height">170dp</dimen>

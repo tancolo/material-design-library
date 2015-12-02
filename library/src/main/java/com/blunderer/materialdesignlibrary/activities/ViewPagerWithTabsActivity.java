@@ -5,7 +5,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
-import com.astuetz.PagerSlidingTabStrip;
+//import com.astuetz.PagerSlidingTabStrip;
+import com.blunderer.materialdesignlibrary.views.PagerSlidingTabStrip;
 import com.blunderer.materialdesignlibrary.R;
 import com.blunderer.materialdesignlibrary.adapters.ViewPagerAdapter;
 import com.blunderer.materialdesignlibrary.handlers.ViewPagerHandler;

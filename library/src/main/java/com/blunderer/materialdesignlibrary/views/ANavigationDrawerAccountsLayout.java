@@ -183,7 +183,10 @@ public abstract class ANavigationDrawerAccountsLayout extends LinearLayout {
                 }
 
             });
-        } else mPicture.setImageDrawable(currentAccount.getPictureResource());
+        } else {
+            mPicture.setImageDrawable(currentAccount.getPictureResource());
+            mPictureProgressBar.setVisibility(INVISIBLE);
+        }
 
         if (!TextUtils.isEmpty(currentAccount.getTitle())) {
             mTitle.setText(currentAccount.getTitle());

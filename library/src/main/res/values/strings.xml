@@ -10,5 +10,6 @@
     <string name="mdl_add_account">Add an account</string>
     <string name="mdl_search">Search</string>
     <string name="mdl_back">Back</string>
+    <string name="mdl_unread_count">Unread count</string>
 
 </resources>

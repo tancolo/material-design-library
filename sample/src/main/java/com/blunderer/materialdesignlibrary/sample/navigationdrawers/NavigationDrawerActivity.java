@@ -1,6 +1,7 @@
 package com.blunderer.materialdesignlibrary.sample.navigationdrawers;
 
 import android.content.Intent;
+import android.util.Log;
 
 import com.blunderer.materialdesignlibrary.handlers.ActionBarDefaultHandler;
 import com.blunderer.materialdesignlibrary.handlers.ActionBarHandler;
@@ -36,6 +37,9 @@ public class NavigationDrawerActivity
 
     @Override
     public NavigationDrawerTopHandler getNavigationDrawerTopHandler() {
+        Log.e("TANHQ", "getNavigationDrawerTopHandler: \n"
+        + Log.getStackTraceString(new Throwable()));
+
         return new NavigationDrawerTopHandler(this)
                 .addSection(R.string.fragment)
                 .addItem(R.string.fragment_listview, new ListViewFragment())

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 
 import com.blunderer.materialdesignlibrary.models.ListItem;
 import com.blunderer.materialdesignlibrary.models.NavigationDrawerListItemDivider;
@@ -23,16 +24,20 @@ public class NavigationDrawerTopHandler {
     public NavigationDrawerTopHandler(Context context) {
         mContext = context;
         mItems = new ArrayList<>();
+        Log.e("TANHQ", "NavigationDrawerTopHandler");
     }
 
     public NavigationDrawerTopHandler addSection(int titleResource) {
+        Log.e("TANHQ", "NavigationDrawerTopHandler->addSection 1");
         NavigationDrawerListItemHeader item = new NavigationDrawerListItemHeader();
         item.setTitle(mContext, titleResource);
         mItems.add(item);
+        Log.e("TANHQ", "End->addSection");
         return this;
     }
 
     public NavigationDrawerTopHandler addSection(int titleResource, int titleStyle) {
+        Log.e("TANHQ", "NavigationDrawerTopHandler->addSection 2");
         NavigationDrawerListItemHeader item = new NavigationDrawerListItemHeader();
         item.setTitle(mContext, titleResource);
         item.setTitleStyle(titleStyle);
@@ -91,10 +96,12 @@ public class NavigationDrawerTopHandler {
     }
 
     public NavigationDrawerTopHandler addItem(int titleResource, Fragment fragment) {
+        Log.e("TANHQ", "NavigationDrawerTopHandler->addItem: fragment = " + fragment);
         NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
         item.setTitle(mContext, titleResource);
         item.setFragment(fragment);
         mItems.add(item);
+        Log.e("TANHQ", "End addItem");
         return this;
     }
 
@@ -225,6 +232,118 @@ public class NavigationDrawerTopHandler {
         item.setIcon(mContext, iconResource);
         item.setFragment(fragment);
         item.setTitleStyle(titleStyle);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(String title,
+                                              int iconResource,
+                                              Fragment fragment,
+                                              String moduleTitle,
+                                              int titleStyle,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(title);
+        item.setIcon(mContext, iconResource);
+        item.setFragment(fragment);
+        item.setModuleTitle(moduleTitle);
+        item.setTitleStyle(titleStyle);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(int textIconResource,
+                                              String title,
+                                              Fragment fragment,
+                                              String moduleTitle,
+                                              int textIconStyle,
+                                              int titleStyle,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(title);
+        item.setTextIcon(mContext, textIconResource);
+        item.setFragment(fragment);
+        item.setModuleTitle(moduleTitle);
+        item.setTitleStyle(titleStyle);
+        item.setTextIconStyle(textIconStyle);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(String textIcon,
+                                              String title,
+                                              Fragment fragment,
+                                              String moduleTitle,
+                                              int textIconStyle,
+                                              int titleStyle,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(title);
+        item.setTextIcon(textIcon);
+        item.setFragment(fragment);
+        item.setModuleTitle(moduleTitle);
+        item.setTitleStyle(titleStyle);
+        item.setTextIconStyle(textIconStyle);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(String textIcon,
+                                              String title,
+                                              Fragment fragment,
+                                              String moduleTitle,
+                                              int selectedColor,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(title);
+        item.setTextIcon(textIcon);
+        item.setFragment(fragment);
+        item.setModuleTitle(moduleTitle);
+        item.setSelectedColor(selectedColor);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(String textIcon,
+                                              String title,
+                                              Drawable alertIcon,
+                                              Fragment fragment,
+                                              String moduleTitle,
+                                              int textIconStyle,
+                                              int titleStyle,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(title);
+        item.setTextIcon(textIcon);
+        item.setAlertIcon(alertIcon);
+        item.setFragment(fragment);
+        item.setModuleTitle(moduleTitle);
+        item.setTitleStyle(titleStyle);
+        item.setTextIconStyle(textIconStyle);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
+    public NavigationDrawerTopHandler addItem(String textIcon,
+                                              String title,
+                                              Drawable alertIcon,
+                                              Fragment fragment,
+                                              String moduleTitle,
+                                              int selectedColor,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopFragment item = new NavigationDrawerListItemTopFragment();
+        item.setTitle(title);
+        item.setTextIcon(textIcon);
+        item.setAlertIcon(alertIcon);
+        item.setFragment(fragment);
+        item.setModuleTitle(moduleTitle);
+        item.setSelectedColor(selectedColor);
         item.setBackgroundStyle(backgroundStyle);
         mItems.add(item);
         return this;
@@ -1136,6 +1255,23 @@ public class NavigationDrawerTopHandler {
         return this;
     }
 
+    public NavigationDrawerTopHandler addItem(String textIcon,
+                                              String title,
+                                              Intent intent,
+                                              int textIconStyle,
+                                              int titleStyle,
+                                              int backgroundStyle) {
+        NavigationDrawerListItemTopIntent item = new NavigationDrawerListItemTopIntent();
+        item.setTitle(title);
+        item.setTextIcon(textIcon);
+        item.setIntent(intent);
+        item.setTitleStyle(titleStyle);
+        item.setTextIconStyle(textIconStyle);
+        item.setBackgroundStyle(backgroundStyle);
+        mItems.add(item);
+        return this;
+    }
+
     public NavigationDrawerTopHandler addItem(String title, Intent intent) {
         NavigationDrawerListItemTopIntent item = new NavigationDrawerListItemTopIntent();
         item.setTitle(title);
@@ -1167,11 +1303,13 @@ public class NavigationDrawerTopHandler {
     }
 
     public NavigationDrawerTopHandler addItem(int titleResource, int iconResource, Intent intent) {
+        Log.e("TANHQ", "NavigationDrawerTopHandler->addItem3-1");
         NavigationDrawerListItemTopIntent item = new NavigationDrawerListItemTopIntent();
         item.setTitle(mContext, titleResource);
         item.setIcon(mContext, iconResource);
         item.setIntent(intent);
         mItems.add(item);
+        Log.e("TANHQ", "NavigationDrawerTopHandler->addItem3-2");
         return this;
     }
 

@@ -17,6 +17,10 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <style name="MaterialDesignLibraryTheme.NavigationDrawer.ItemsTextIconStyle" parent="MaterialDesignLibraryTheme.NavigationDrawer.ItemsTextStyle">
+        <item name="android:textSize">@dimen/mdl_navigation_drawer_row_text_icon_size</item>
+    </style>
+
     <style name="MaterialDesignLibraryTheme.NavigationDrawer.SectionsTextStyle" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="android:textSize">@dimen/mdl_navigation_drawer_row_title_size</item>
         <item name="android:textStyle">bold</item>

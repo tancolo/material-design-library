@@ -64,6 +64,10 @@ public class NavigationDrawerTopAdapter extends ArrayAdapter<ListItem> {
                     .findViewById(R.id.navigation_drawer_row_header);
             holder.icon = (ImageView) convertView
                     .findViewById(R.id.navigation_drawer_row_icon);
+            holder.textIcon = (TextView) convertView
+                    .findViewById(R.id.navigation_drawer_row_text_icon);
+            holder.alertCount = (ImageView) convertView
+                    .findViewById(R.id.navigation_drawer_row_alert_icon);
             holder.headerSeparator = convertView
                     .findViewById(R.id.navigation_drawer_row_header_separator);
             convertView.setTag(holder);
@@ -88,21 +92,46 @@ public class NavigationDrawerTopAdapter extends ArrayAdapter<ListItem> {
                     R.style.MaterialDesignLibraryTheme_NavigationDrawer_SectionsTextStyle);
         }
 
+        if (item.useTextIcon()) {
+            try {
+                holder.textIcon.setText(item.getTextIcon());
+            } catch (Resources.NotFoundException e) {
+                holder.textIcon.setText("");
+            }
+            holder.textIcon.setTextAppearance(getContext(), item.useTextIconStyle() ?
+                    item.getTextIconStyle() :
+                    R.style.MaterialDesignLibraryTheme_NavigationDrawer_ItemsTextIconStyle);
+        }
+
+        if (item.getAlertIcon() != null) {
+            holder.alertCount.setImageDrawable(item.getAlertIcon());
+            holder.alertCount.setVisibility(View.VISIBLE);
+        } else {
+            holder.alertCount.setVisibility(View.GONE);
+        }
+
         if (item instanceof NavigationDrawerListItemTopFragment) {
             NavigationDrawerListItemTopFragment itemNormal =
                     (NavigationDrawerListItemTopFragment) item;
+            if (item.useTextIcon()) holder.textIcon.setVisibility(View.VISIBLE);
             holder.title.setVisibility(View.VISIBLE);
             holder.titleHeader.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(View.GONE);
-            if (mNavigationDrawerSelectedItemPosition == position &&
-                    (itemNormal.useSelectedIconResource() || itemNormal.useSelectedIconUrl())) {
-                try {
-                    if (itemNormal.useSelectedIconUrl()) {
-                        itemNormal.getSelectedIconUrl().into(holder.icon);
-                    } else holder.icon.setImageDrawable(itemNormal.getSelectedIconDrawable());
-                    holder.icon.setVisibility(View.VISIBLE);
-                } catch (Resources.NotFoundException e) {
-                    holder.icon.setVisibility(View.GONE);
+            if (mNavigationDrawerSelectedItemPosition == position) {
+                if (itemNormal.useSelectedIconResource() || itemNormal.useSelectedIconUrl()) {
+                    try {
+                        if (itemNormal.useSelectedIconUrl()) {
+                            itemNormal.getSelectedIconUrl().into(holder.icon);
+                        } else holder.icon.setImageDrawable(itemNormal.getSelectedIconDrawable());
+                        holder.icon.setVisibility(View.VISIBLE);
+                    } catch (Resources.NotFoundException e) {
+                        holder.icon.setVisibility(View.GONE);
+                    }
+                }
+
+                if (itemNormal.useSelectedColor()) {
+                    holder.textIcon.setTextColor(itemNormal.getSelectedColor());
+                    holder.title.setTextColor(itemNormal.getSelectedColor());
                 }
             } else if (itemNormal.useIconResource() || itemNormal.useIconUrl()) {
                 try {
@@ -116,6 +145,7 @@ public class NavigationDrawerTopAdapter extends ArrayAdapter<ListItem> {
         } else if (item instanceof NavigationDrawerListItemTopIntent) {
             NavigationDrawerListItemTopIntent itemNormal =
                     (NavigationDrawerListItemTopIntent) item;
+            if (item.useTextIcon()) holder.textIcon.setVisibility(View.VISIBLE);
             holder.title.setVisibility(View.VISIBLE);
             holder.titleHeader.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(View.GONE);
@@ -131,11 +161,13 @@ public class NavigationDrawerTopAdapter extends ArrayAdapter<ListItem> {
         } else if (item instanceof NavigationDrawerListItemHeader) {
             holder.title.setVisibility(View.GONE);
             holder.titleHeader.setVisibility(View.VISIBLE);
+            holder.textIcon.setVisibility(View.GONE);
             holder.icon.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(position == 0 ? View.GONE : View.VISIBLE);
         } else if (item instanceof NavigationDrawerListItemDivider) {
             holder.title.setVisibility(View.GONE);
             holder.titleHeader.setVisibility(View.GONE);
+            holder.textIcon.setVisibility(View.GONE);
             holder.icon.setVisibility(View.GONE);
             holder.headerSeparator.setVisibility(View.GONE);
         }
@@ -151,8 +183,10 @@ public class NavigationDrawerTopAdapter extends ArrayAdapter<ListItem> {
 
         private TextView title;
         private TextView titleHeader;
+        private TextView textIcon;
         private ImageView icon;
         private View headerSeparator;
+        private ImageView alertCount;
 
     }
 
