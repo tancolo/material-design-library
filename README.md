@@ -16,7 +16,7 @@ Material Design Library
 - Developed by
 
 ### Demo
-在目录DemoApp中
+目录DemoApp/sample-debug.apkgit
 
 ![NavigationDrawer with Accounts](images/screen06.png) ![NavigationDrawer with Small Accounts Layout](images/screen11.png)
 ![CardView with Image on the Top](images/screen07.png) ![SearchBar with Auto Completion](images/screen13.png)
